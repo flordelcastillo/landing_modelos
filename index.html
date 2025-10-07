@@ -209,54 +209,54 @@
             font-size: 0.95em;
         }
 
-        .team-grid {
+        .teams-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             margin-top: 40px;
         }
 
-        .team-member {
+        .team-group {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
-            text-align: center;
             transition: all 0.3s;
         }
 
-        .team-member:hover {
-            transform: scale(1.05);
+        .team-group:hover {
+            transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            margin: 0 auto 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        .team-name {
-            font-size: 1.4em;
-            margin-bottom: 10px;
+        .group-title {
+            font-size: 1.6em;
             color: #ffd700;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
         }
 
-        .team-role {
-            opacity: 0.8;
-            margin-bottom: 15px;
+        .members-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .team-contact {
-            font-size: 0.9em;
-            opacity: 0.7;
+        .member-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border-left: 3px solid #f093fb;
+            transition: all 0.3s;
+            font-size: 1.05em;
+        }
+
+        .member-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #f5576c;
+            transform: translateX(5px);
         }
 
         footer {
@@ -278,6 +278,10 @@
             .section-title {
                 font-size: 2em;
             }
+
+            .teams-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -295,37 +299,40 @@
         <h2 class="section-title">📚 Documentación del Proyecto</h2>
         <div class="documentation">
             <div class="doc-content">
-                <p><strong>Este proyecto implementa una simulación completa del popular juego Clash Royale utilizando Java y JavaFX, aplicando conceptos avanzados de modelado y simulación de sistemas.</strong></p>
+                <p><strong>Este proyecto desarrolla una simulación completa y detallada de la Arena de Clash Royale, implementando un modelo computacional preciso del juego de estrategia en tiempo real más popular del mundo, utilizando Java y JavaFX.</strong></p>
 
-                <h3>🎯 Objetivo del Proyecto</h3>
-                <p>Desarrollar un sistema de simulación que replique la mecánica de batalla de Clash Royale, implementando algoritmos de inteligencia artificial para los personajes, gestión de recursos (elixir), y física de colisiones en tiempo real.</p>
-
-                <h3>⚙️ Tecnologías Utilizadas</h3>
+                <h3>🎯 Alcance del Proyecto</h3>
+                <p>La simulación reproduce fielmente la mecánica de combate de Clash Royale, desarrollando un sistema que modela:</p>
                 <ul>
-                    <li><strong>Java:</strong> Lenguaje de programación principal para la lógica del juego</li>
-                    <li><strong>JavaFX:</strong> Framework para la interfaz gráfica y animaciones</li>
-                    <li><strong>Programación Orientada a Objetos:</strong> Diseño modular y escalable</li>
-                    <li><strong>Patrones de Diseño:</strong> Factory, Strategy, Observer para gestión de entidades</li>
+                    <li><strong>Arena Completa:</strong> Campo de batalla de 18×32 tiles con sistema de coordenadas preciso</li>
+                    <li><strong>Sistema de Torres:</strong> 6 torres defensivas (Torre del Rey y Torres de Princesa) con comportamiento automático y detección inteligente de objetivos</li>
+                    <li><strong>Mecánica de Terreno:</strong> Río central, puentes laterales y zonas de despliegue dinámicas que se expanden al destruir torres enemigas</li>
+                    <li><strong>Sistema de Combate:</strong> Detección de colisiones mediante distancia euclidiana, rangos de ataque variables y priorización de objetivos</li>
+                    <li><strong>Condiciones de Victoria:</strong> Múltiples criterios jerárquicos incluyendo destrucción de torres, muerte súbita y comparación de vida restante</li>
                 </ul>
 
-                <h3>🎮 Características Implementadas</h3>
+                <h3>🎮 Propósito de la Simulación</h3>
+                <p>Este proyecto tiene como finalidad aplicar conceptos avanzados de <strong>Modelos y Simulación</strong> en un entorno práctico y visualmente atractivo. La simulación permite:</p>
                 <ul>
-                    <li>Sistema de generación automática de elixir</li>
-                    <li>Mecánica de despliegue de tropas y edificios</li>
-                    <li>Inteligencia artificial para comportamiento de unidades</li>
-                    <li>Sistema de detección de colisiones y combate</li>
-                    <li>Animaciones fluidas y efectos visuales</li>
-                    <li>Gestión de torres y puntos de vida</li>
-                    <li>Sistema de victoria/derrota</li>
+                    <li>Modelar sistemas complejos con múltiples agentes autónomos interactuando en tiempo real</li>
+                    <li>Implementar algoritmos de toma de decisiones y comportamiento emergente</li>
+                    <li>Estudiar el equilibrio estratégico mediante restricciones espaciales y temporales</li>
+                    <li>Analizar la efectividad de diferentes estrategias bajo reglas determinísticas</li>
+                    <li>Visualizar comportamientos emergentes en un sistema de combate táctico</li>
                 </ul>
 
-                <h3>🔬 Modelos de Simulación Aplicados</h3>
+                <h3>⚙️ Aspectos Técnicos Implementados</h3>
                 <ul>
-                    <li><strong>Modelo de Eventos Discretos:</strong> Para gestión de turnos y acciones</li>
-                    <li><strong>Sistemas Multi-Agente:</strong> Comportamiento autónomo de unidades</li>
-                    <li><strong>Algoritmos de Pathfinding:</strong> Navegación inteligente en el campo de batalla</li>
-                    <li><strong>Modelo de Recursos Limitados:</strong> Gestión de elixir y costos</li>
+                    <li><strong>Sistema de Coordenadas:</strong> Formato bidimensional (X, Y) con precisión decimal (float) para movimientos fluidos</li>
+                    <li><strong>Cálculo de Distancias:</strong> Fórmula euclidiana para detección de rangos y colisiones</li>
+                    <li><strong>Zonas Dinámicas:</strong> Expansión programática de áreas de despliegue basada en destrucción de estructuras</li>
+                    <li><strong>Comportamiento de Torres:</strong> Sistema de targeting automático con priorización y retargeting instantáneo</li>
+                    <li><strong>Validación de Despliegue:</strong> Verificación de restricciones espaciales y reglas de juego en tiempo real</li>
                 </ul>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#documentacion-completa" class="btn" onclick="mostrarDocumentacionCompleta(); return false;">📖 Ver Documentación Técnica Completa</a>
+                </div>
             </div>
         </div>
     </section>
@@ -368,46 +375,222 @@
 
     <section id="participantes">
         <h2 class="section-title">👥 Equipo de Desarrollo</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-avatar">👨‍💻</div>
-                <h3 class="team-name">Estudiante 1</h3>
-                <p class="team-role">Arquitectura del Sistema & Backend</p>
-                <p class="team-contact">📧 estudiante1@universidad.edu</p>
+        <div class="teams-container">
+            <div class="team-group">
+                <h3 class="group-title">⚔️ Grupo 1</h3>
+                <div class="members-list">
+                    <div class="member-item">Santiago Molina</div>
+                    <div class="member-item">Esteban Quiroga</div>
+                    <div class="member-item">Florencia Videla</div>
+                    <div class="member-item">Benjamín Velasco</div>
+                    <div class="member-item">Gonzalo Barroso</div>
+                    <div class="member-item">Rodrigo Villegas</div>
+                    <div class="member-item">Facundo Brunetti</div>
+                </div>
             </div>
-            <div class="team-member">
-                <div class="team-avatar">👩‍💻</div>
-                <h3 class="team-name">Estudiante 2</h3>
-                <p class="team-role">Interfaz Gráfica & Animaciones</p>
-                <p class="team-contact">📧 estudiante2@universidad.edu</p>
+
+            <div class="team-group">
+                <h3 class="group-title">🏆 Grupo 2</h3>
+                <div class="members-list">
+                    <div class="member-item">Germán Adrián Muñoz</div>
+                    <div class="member-item">Matias Gimenez</div>
+                    <div class="member-item">Valentin Gimenez</div>
+                    <div class="member-item">Elenio Garcia</div>
+                </div>
             </div>
-            <div class="team-member">
-                <div class="team-avatar">👨‍💻</div>
-                <h3 class="team-name">Estudiante 3</h3>
-                <p class="team-role">IA & Sistemas de Comportamiento</p>
-                <p class="team-contact">📧 estudiante3@universidad.edu</p>
-            </div>
-            <div class="team-member">
-                <div class="team-avatar">👩‍💻</div>
-                <h3 class="team-name">Estudiante 4</h3>
-                <p class="team-role">Testing & Documentación</p>
-                <p class="team-contact">📧 estudiante4@universidad.edu</p>
+
+            <div class="team-group">
+                <h3 class="group-title">👑 Grupo 3</h3>
+                <div class="members-list">
+                    <div class="member-item">Candela Pedernera</div>
+                    <div class="member-item">Maria de los Angeles Gil</div>
+                    <div class="member-item">Valentin Galarza</div>
+                    <div class="member-item">Joel Rodriguez</div>
+                    <div class="member-item">Hugo Carreño</div>
+                    <div class="member-item">Nicolas Cardellini</div>
+                    <div class="member-item">Pablo Sanabria</div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Modal Documentación Completa -->
+    <div id="modalDocumentacion" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; overflow-y: auto; padding: 20px;">
+        <div style="max-width: 1000px; margin: 40px auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 40px; position: relative;">
+            <button onclick="cerrarDocumentacion()" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 30px; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: all 0.3s;">&times;</button>
+            
+            <h2 style="font-size: 2.5em; margin-bottom: 30px; text-align: center;">📖 Documentación Técnica Completa</h2>
+            <p style="text-align: center; opacity: 0.9; margin-bottom: 40px; font-size: 1.1em;">Universidad Nacional de Villa Mercedes - Escuela de Ingeniería y Ciencias Ambientales</p>
+
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; line-height: 1.8;">
+                
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">Descripción del Juego</h3>
+                <p>Clash Royale es un juego de estrategia en tiempo real que combina elementos de defensa de torres, cartas coleccionables y combate multijugador. Los jugadores se enfrentan en duelos rápidos donde deben destruir las torres enemigas utilizando un mazo personalizado de cartas que representan tropas, hechizos y estructuras.</p>
+                <p>Las partidas tienen una duración estándar de <strong>3 minutos</strong>. Si al finalizar hay empate, se activa una prórroga de 1 minuto conocida como <strong>tiempo extra</strong>, donde el primer jugador en destruir una torre gana automáticamente.</p>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">1. Dimensiones de la Arena</h3>
+                <p>La arena posee una estructura rectangular de <strong>18 tiles de ancho × 32 tiles de alto</strong>. Cada "tile" representa la unidad básica de medida, fundamental para calcular distancias, rangos de ataque y posicionamiento.</p>
+                
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Distribución Vertical:</h4>
+                <ul style="margin-left: 30px;">
+                    <li><strong>Zona Jugador 1:</strong> Tiles 0 a 14 (parte inferior)</li>
+                    <li><strong>Río Central:</strong> Tiles 15 a 16 (barrera estratégica)</li>
+                    <li><strong>Zona Jugador 2:</strong> Tiles 17 a 31 (parte superior)</li>
+                </ul>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Sistema de Coordenadas:</h4>
+                <p>Formato bidimensional (X, Y) donde X abarca del 0 al 17 y Y del 0 al 31. El punto de origen (0,0) está en la esquina inferior izquierda, y el máximo (17,31) en la superior derecha.</p>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">2. Zonas de la Arena</h3>
+                
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Zona del Jugador 1 (Inferior):</h4>
+                <p>Área desde Y = 0 hasta Y = 14. Cuando el Jugador 1 destruye una torre lateral enemiga, se habilita una franja adicional de 5 tiles de profundidad:</p>
+                <ul style="margin-left: 30px;">
+                    <li>Torre izquierda destruida: Área X = 0 a 8, Y = 17 a 21</li>
+                    <li>Torre derecha destruida: Área X = 9 a 17, Y = 17 a 21</li>
+                </ul>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Río Central:</h4>
+                <p>Ubicado entre Y = 15 y Y = 16. Barrera natural que impide el paso de tropas terrestres, obligando a usar los puentes laterales. Las tropas aéreas pueden atravesarlo sin restricciones.</p>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Zona del Jugador 2 (Superior):</h4>
+                <p>Área desde Y = 17 hasta Y = 31. Expansión análoga al Jugador 1 cuando destruye torres enemigas:</p>
+                <ul style="margin-left: 30px;">
+                    <li>Torre izquierda destruida: Área X = 0 a 8, Y = 10 a 14</li>
+                    <li>Torre derecha destruida: Área X = 9 a 17, Y = 10 a 14</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">3. Puentes</h3>
+                <p>Los puentes son los únicos puntos habilitados para que las tropas terrestres crucen el río central.</p>
+                <ul style="margin-left: 30px;">
+                    <li><strong>Puente Izquierdo:</strong> Posición (3, 15-16)</li>
+                    <li><strong>Puente Derecho:</strong> Posición (14, 15-16)</li>
+                    <li>Ancho: 1 tile cada uno</li>
+                    <li>No pueden usarse como zonas de despliegue inicialmente</li>
+                    <li>Se habilitan para despliegue cuando se destruye la torre lateral correspondiente</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">4. Torres</h3>
+                
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Torre del Rey:</h4>
+                <ul style="margin-left: 30px;">
+                    <li><strong>Vida:</strong> 2534 HP</li>
+                    <li><strong>Rango:</strong> 7.0 tiles</li>
+                    <li><strong>Velocidad de ataque:</strong> 1.0 segundos</li>
+                    <li><strong>Daño:</strong> 90 por disparo</li>
+                    <li><strong>Ubicación:</strong> (8.5, 0) para Jugador 1 y (8.5, 31) para Jugador 2</li>
+                    <li>Se activa cuando cae una Torre de Princesa o recibe daño directo</li>
+                </ul>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Torres de Princesa:</h4>
+                <ul style="margin-left: 30px;">
+                    <li><strong>Vida:</strong> 1400 HP</li>
+                    <li><strong>Rango:</strong> 7.5 tiles</li>
+                    <li><strong>Velocidad de ataque:</strong> 0.8 segundos</li>
+                    <li><strong>Ubicación Jugador 1:</strong> (3, 2) y (14, 2)</li>
+                    <li><strong>Ubicación Jugador 2:</strong> (3, 29) y (14, 29)</li>
+                    <li>Activas desde el inicio, primeras en entrar en combate</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">5. Características de las Torres</h3>
+                <ul style="margin-left: 30px;">
+                    <li><strong>Ataque automático:</strong> Detectan y disparan al enemigo más cercano dentro del rango</li>
+                    <li><strong>Priorización:</strong> Tropas antes que edificios. En empate, ID más bajo</li>
+                    <li><strong>Tipo de daño:</strong> Puntual (sin área de efecto)</li>
+                    <li><strong>Retargeting:</strong> Inmediato al eliminar objetivo actual</li>
+                    <li><strong>Proyectiles:</strong> No pueden ser bloqueados ni destruidos en el aire</li>
+                    <li><strong>Cobertura:</strong> 360° sin zonas muertas</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">6. Reglas de Despliegue</h3>
+                <ul style="margin-left: 30px;">
+                    <li>Jugador 1: Solo puede desplegar en Y = 0 a 14</li>
+                    <li>Jugador 2: Solo puede desplegar en Y = 17 a 31</li>
+                    <li>Prohibido desplegar sobre el río (Y = 15-16)</li>
+                    <li>Prohibido desplegar sobre torres o edificios existentes</li>
+                    <li>Las coordenadas deben estar dentro de los límites (X = 0-17, Y = 0-31)</li>
+                    <li>El tile debe estar libre de obstáculos físicos</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">7. Condiciones de Victoria</h3>
+                <p><strong>Orden de prioridad para determinar al ganador:</strong></p>
+                <ol style="margin-left: 30px;">
+                    <li><strong>Victoria Inmediata:</strong> Destruir la Torre del Rey enemiga</li>
+                    <li><strong>Victoria por Torres:</strong> Al terminar el tiempo, quien destruyó más torres gana</li>
+                    <li><strong>Muerte Súbita:</strong> Si hay empate en torres, el primero en destruir cualquier torre gana</li>
+                    <li><strong>Vida Restante:</strong> Si termina muerte súbita sin destrucciones, gana quien tenga al enemigo con menos vida en una torre</li>
+                    <li><strong>Empate:</strong> Si todas las torres tienen exactamente la misma vida</li>
+                </ol>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">8. Especificaciones Técnicas</h3>
+                
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Sistema de Medidas:</h4>
+                <ul style="margin-left: 30px;">
+                    <li>Unidad base: <strong>Tile</strong></li>
+                    <li>Precisión: Valores decimales (float) para movimientos fluidos</li>
+                    <li>Ejemplo: Posiciones como 8.5 son válidas</li>
+                </ul>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Cálculo de Distancias:</h4>
+                <p style="margin-left: 30px;">Fórmula euclidiana: <strong>Distancia = √[(x₂-x₁)² + (y₂-y₁)²]</strong></p>
+
+                <h4 style="color: #ffeb3b; margin-top: 20px;">Sistema de Colisiones:</h4>
+                <ul style="margin-left: 30px;">
+                    <li>Torres: Ocupan 3×3 tiles (obstáculos sólidos)</li>
+                    <li>Bordes: Completamente sólidos (X = 0, 17 / Y = 0, 31)</li>
+                    <li>Río: Barrera para terrestres, transparente para aéreos</li>
+                </ul>
+
+                <h3 style="color: #ffd700; font-size: 1.8em; margin: 30px 0 15px;">9. Tipos de Arenas</h3>
+                <p>Todas las arenas comparten la misma estructura de 18×32 tiles, garantizando equidad. La diferenciación es exclusivamente estética:</p>
+                <ul style="margin-left: 30px;">
+                    <li>Arena de Entrenamiento</li>
+                    <li>Arena de Duende (temática de bosque)</li>
+                    <li>Arena de Hielo (nieve y bloques congelados)</li>
+                    <li>Arena Legendaria (columnas doradas)</li>
+                    <li>Arena Selvática, Montapuerco, Pescador, entre otras</li>
+                </ul>
+                <p>La clasificación está vinculada al sistema de trofeos: a mayor progreso, se desbloquean nuevas arenas sin alterar las mecánicas del juego.</p>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <button onclick="cerrarDocumentacion()" class="btn">Volver al Inicio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2025 - Proyecto Final Modelos y Simulación</p>
-        <p>Universidad | Ingeniería en Sistemas</p>
+        <p>Universidad Nacional de Villa Mercedes - Escuela de Ingeniería y Ciencias Ambientales</p>
     </footer>
 
     <script>
+        // Funciones para el modal de documentación
+        function mostrarDocumentacionCompleta() {
+            document.getElementById('modalDocumentacion').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarDocumentacion() {
+            document.getElementById('modalDocumentacion').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                cerrarDocumentacion();
+            }
+        });
+
         // Animación suave al hacer scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
@@ -435,7 +618,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.video-card, .team-member').forEach(card => {
+        document.querySelectorAll('.video-card, .team-group').forEach(card => {
             card.style.opacity = '0';
             observer.observe(card);
         });
